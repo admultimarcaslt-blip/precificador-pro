@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precificador Pro — Taxas 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#E50914;--red2:#b8070f;--bg:#141414;--bg2:#1f1f1f;--bg3:#2a2a2a;--text:#e5e5e5;--muted:#888;--border:#2d2d2d;--green:#4ade80;--green-bg:#0d1f10;--green-bd:#1a3d1f;--blue:#60a5fa;--blue-bg:#0a1628;--blue-bd:#1a2e4a;--amber:#fbbf24;--amber-bg:#1a1200;--amber-bd:#3d2a00;--pink:#f472b6}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding-bottom:4rem}
+
+/* HERO */
+.topbar{background:linear-gradient(180deg,rgba(0,0,0,.95)0%,transparent);padding:1.1rem 1.5rem;display:flex;align-items:center;gap:12px}
+.n-logo{background:var(--red);color:#fff;font-size:20px;font-weight:900;width:36px;height:36px;border-radius:5px;display:flex;align-items:center;justify-content:center;letter-spacing:-1px;flex-shrink:0}
+.topbar-text h2{font-size:15px;font-weight:700;color:#fff}
+.topbar-text p{font-size:11px;color:var(--muted)}
+
+.hero{background:#1a1a1a;border-bottom:3px solid var(--red);padding:1.4rem 1.5rem 1.2rem;margin-bottom:1.5rem}
+.hero-wrap{max-width:900px;margin:0 auto;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.hero-tag{background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:3px;letter-spacing:.08em;margin-bottom:8px;display:inline-block}
+.hero h1{font-size:24px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:5px}
+.hero p{font-size:13px;color:var(--muted);max-width:500px}
+.update-badge{background:#1a1a1a;border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:11px;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.update-badge span{color:#4ade80;font-weight:700}
+
+.wrap{max-width:900px;margin:0 auto;padding:0 1rem}
+
+/* TABS */
+.tabs-container{display:flex;gap:0;margin-bottom:1.5rem;border-bottom:2px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.tabs-container::-webkit-scrollbar{display:none}
+.tab-btn{display:flex;align-items:center;gap:8px;padding:11px 16px;border:none;background:transparent;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);transition:all .2s;font-family:inherit;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;letter-spacing:.01em;flex-shrink:0}
+.tab-btn .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.tab-btn:hover:not(.active){color:#ccc}
+.tab-btn.active{color:#fff}
+.tab-btn.tab-shopee .dot{background:#FF6200}.tab-btn.tab-shopee.active{border-bottom-color:#FF6200;color:#ff8c3a}
+.tab-btn.tab-ml .dot{background:#FFE600}.tab-btn.tab-ml.active{border-bottom-color:#FFE600;color:#ffd700}
+.tab-btn.tab-tiktok .dot{background:#e5e5e5}.tab-btn.tab-tiktok.active{border-bottom-color:#e5e5e5;color:#fff}
+.tab-btn.tab-amazon .dot{background:#FF9900}.tab-btn.tab-amazon.active{border-bottom-color:#FF9900;color:#ffb347}
+.tab-btn.tab-shein .dot{background:#FF006E}.tab-btn.tab-shein.active{border-bottom-color:#FF006E;color:#ff5ca8}
+.tab-btn.tab-magalu .dot{background:#2196F3}.tab-btn.tab-magalu.active{border-bottom-color:#2196F3;color:#64b5f6}
+.tab-btn.tab-kwai .dot{background:#FFC300}.tab-btn.tab-kwai.active{border-bottom-color:#FFC300;color:#ffd740}
+.tab-btn.tab-imp .dot{background:var(--red)}.tab-btn.tab-imp.active{border-bottom-color:var(--red);color:#ff4d57}
+
+.panel{display:none}.panel.active{display:block}
+
+/* CARDS */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem}
+.card-head{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.plat-logo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0}
+.logo-shopee{background:#FF6200;color:#fff}
+.logo-ml{background:#FFE600;color:#111}
+.logo-tiktok{background:#fff;color:#111}
+.logo-amazon{background:#FF9900;color:#111}
+.logo-shein{background:#000;color:#FF006E;border:1px solid #FF006E}
+.logo-magalu{background:#2196F3;color:#fff}
+.logo-kwai{background:#111;color:#FFC300}
+.logo-tax{background:var(--red);color:#fff}
+.card-title{font-size:15px;font-weight:700;color:#fff}
+.pill{font-size:10px;padding:3px 8px;border-radius:4px;margin-left:5px;font-weight:700;letter-spacing:.03em;border:1px solid}
+.p-shopee{background:rgba(255,98,0,.12);color:#ff8c3a;border-color:rgba(255,98,0,.3)}
+.p-ml{background:rgba(255,230,0,.1);color:#ffd700;border-color:rgba(255,230,0,.25)}
+.p-tiktok{background:rgba(229,229,229,.07);color:#ccc;border-color:rgba(229,229,229,.15)}
+.p-amazon{background:rgba(255,153,0,.12);color:#ffb347;border-color:rgba(255,153,0,.3)}
+.p-shein{background:rgba(255,0,110,.1);color:#ff5ca8;border-color:rgba(255,0,110,.25)}
+.p-magalu{background:rgba(33,150,243,.12);color:#64b5f6;border-color:rgba(33,150,243,.3)}
+.p-kwai{background:rgba(255,195,0,.1);color:#ffd740;border-color:rgba(255,195,0,.25)}
+.p-tax{background:rgba(229,9,20,.1);color:#ff4d57;border-color:rgba(229,9,20,.25)}
+
+.section-label{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:580px){.grid2,.grid3,.grid4{grid-template-columns:1fr 1fr}}
+@media(max-width:380px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+.fgroup{display:flex;flex-direction:column;gap:5px}
+.flabel{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+input[type=number],select{background:#111;border:1px solid var(--border);border-radius:7px;padding:9px 11px;font-size:14px;color:var(--text);width:100%;outline:none;transition:border .15s,box-shadow .15s;font-family:inherit}
+input[type=number]:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 2px rgba(229,9,20,.18)}
+select option{background:#1f1f1f}
+input[type=range]{width:100%;cursor:pointer;accent-color:var(--red);height:4px}
+.slider-row{display:flex;align-items:center;gap:10px;padding-top:6px}
+.slider-val{font-size:13px;font-weight:700;min-width:40px;text-align:right;color:#fff}
+.divider{border:none;border-top:1px solid #1e1e1e;margin:1.1rem 0}
+
+.calc-btn{width:100%;padding:12px;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;transition:all .15s;font-family:inherit;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:8px}
+.calc-btn::before{content:'▶';font-size:10px}
+.calc-btn:hover{filter:brightness(1.12)}
+.calc-btn:active{transform:scale(.98)}
+.btn-shopee{background:#FF6200;color:#fff}
+.btn-ml{background:#EF9F27;color:#111}
+.btn-tiktok{background:#e5e5e5;color:#111}
+.btn-amazon{background:#FF9900;color:#111}
+.btn-shein{background:#FF006E;color:#fff}
+.btn-magalu{background:#2196F3;color:#fff}
+.btn-kwai{background:#FFC300;color:#111}
+.btn-tax{background:var(--red);color:#fff}
+
+/* RESULT */
+.result-card{background:#1a1a1a;border:1px solid var(--border);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:1rem;position:relative;overflow:hidden}
+.result-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.rc-shopee::before{background:#FF6200}
+.rc-ml::before{background:#EF9F27}
+.rc-tiktok::before{background:#e5e5e5}
+.rc-amazon::before{background:#FF9900}
+.rc-shein::before{background:#FF006E}
+.rc-magalu::before{background:#2196F3}
+.rc-kwai::before{background:#FFC300}
+.rc-tax::before{background:var(--red)}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem}
+@media(max-width:480px){.metrics{grid-template-columns:1fr 1fr}}
+.met{border-radius:8px;padding:13px 12px;border:1px solid}
+.met-label{font-size:10px;color:var(--muted);margin-bottom:6px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.met-val{font-size:18px;font-weight:800}
+.met-blue{background:var(--blue-bg);border-color:var(--blue-bd)}.met-blue .met-val{color:var(--blue)}
+.met-green{background:var(--green-bg);border-color:var(--green-bd)}.met-green .met-val{color:var(--green)}
+.met-amber{background:var(--amber-bg);border-color:var(--amber-bd)}.met-amber .met-val{color:var(--amber)}
+.met-red{background:#1f0808;border-color:#3d1010}.met-red .met-val{color:#ff4d57}
+.met-dark{background:#1a1a1a;border-color:var(--border)}.met-dark .met-val{color:#fff}
+
+.bk-table{width:100%;font-size:13px;border-collapse:collapse}
+.bk-table tr td{padding:7px 0;border-bottom:1px solid #1e1e1e}
+.bk-table tr:last-child td{border-bottom:none;font-weight:700;font-size:14px;padding-top:10px;color:#fff}
+.bk-table td:last-child{text-align:right}
+.td-muted{color:var(--muted)}
+.g{color:var(--green);font-weight:700}
+.r{color:#ff4d57;font-weight:700}
+.tip{display:flex;gap:10px;align-items:flex-start;border-radius:8px;padding:11px 13px;margin-top:12px;border:1px solid}
+.tip-text{font-size:12px;line-height:1.6;color:var(--muted)}
+.tip-green{background:#0a1a0b;border-color:#1a3a1e}
+.tip-amber{background:#1a1200;border-color:#3a2800}
+.tip-blue{background:#0a1020;border-color:#1a2a40}
+.tip-red{background:#180808;border-color:#380818}
+.tip-gray{background:#181818;border-color:#2a2a2a}
+
+/* COMPARISON TABLE */
+.cmp-section{margin-bottom:2rem}
+.cmp-table{width:100%;border-collapse:collapse;font-size:13px}
+.cmp-table th{background:#1a1a1a;color:var(--muted);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border)}
+.cmp-table td{padding:10px 12px;border-bottom:1px solid #1a1a1a;color:var(--text)}
+.cmp-table tr:last-child td{border-bottom:none}
+.cmp-table tr:hover td{background:#1a1a1a}
+.cmp-badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:700;border:1px solid}
+
+/* IMPOSTOS */
+.regime-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
+@media(max-width:580px){.regime-cards{grid-template-columns:1fr 1fr}}
+.regime-card{background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;cursor:pointer;transition:all .15s}
+.regime-card.selected{border-color:var(--red);background:#1a0808}
+.regime-card:hover:not(.selected){border-color:#444}
+.regime-card h4{font-size:12px;font-weight:700;color:#fff;margin-bottom:3px}
+.regime-card p{font-size:10px;color:var(--muted);line-height:1.4}
+.regime-card .rc-rate{font-size:14px;font-weight:800;color:var(--red);margin-top:5px}
+
+.alert-box{background:#1a0a08;border:1px solid #3d1a10;border-radius:8px;padding:11px 14px;margin-bottom:1rem;font-size:12px;color:#ff8c70;line-height:1.5}
+.alert-box strong{color:#ff4d57}
+
+footer{text-align:center;font-size:11px;color:#444;margin-top:2rem;padding:1.5rem 1rem 0;border-top:1px solid var(--border)}
+footer span{color:var(--red);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="n-logo">P</div>
+  <div class="topbar-text">
+    <h2>Precificador Pro</h2>
+    <p>Taxas atualizadas — Abril 2026</p>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-tag">FERRAMENTA PROFISSIONAL</div>
+      <h1>Calculadora de Precificação<br>para Marketplaces Brasileiros</h1>
+      <p>Simule preços com taxas reais e atualizadas de 7 plataformas. Inclui calculadora de impostos por unidade.</p>
+    </div>
+    <div class="update-badge">Taxas atualizadas em<br><span>Abril 2026</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="tabs-container">
+    <button class="tab-btn tab-shopee active" onclick="go('shopee')"><span class="dot"></span>Shopee</button>
+    <button class="tab-btn tab-ml" onclick="go('ml')"><span class="dot"></span>Mercado Livre</button>
+    <button class="tab-btn tab-tiktok" onclick="go('tiktok')"><span class="dot"></span>TikTok Shop</button>
+    <button class="tab-btn tab-amazon" onclick="go('amazon')"><span class="dot"></span>Amazon</button>
+    <button class="tab-btn tab-shein" onclick="go('shein')"><span class="dot"></span>Shein</button>
+    <button class="tab-btn tab-magalu" onclick="go('magalu')"><span class="dot"></span>Magalu</button>
+    <button class="tab-btn tab-kwai" onclick="go('kwai')"><span class="dot"></span>Kwai Shop</button>
+    <button class="tab-btn tab-imp" onclick="go('imp')"><span class="dot"></span>💰 Impostos</button>
+  </div>
+
+  <!-- ══════════ SHOPEE ══════════ -->
+  <div id="p-shopee" class="panel active">
+    <div class="alert-box"><strong>⚠️ Atualização março/2026:</strong> Shopee adotou taxa fixa escalonada por faixa de preço. Produtos até R$79,99 pagam 20% + R$4. Acima de R$80, a comissão volta a 14% mas a taxa fixa sobe progressivamente até R$26.</div>
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-shopee">S</div>
+        <div><span class="card-title">Shopee</span><span class="pill p-shopee">20% + taxa fixa escalonada</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="s-custo" value="25" min="0" oninput="cs()"></div>
+        <div class="fgroup"><label class="flabel">Preço de venda (R$)</label><input type="number" id="s-preco-v" value="0" min="0" placeholder="Deixe 0 p/ calcular" oninput="cs()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="s-frete" value="12" min="0" oninput="cs()"></div>
+      </div>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="s-emb" value="2" min="0" oninput="cs()"></div>
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="s-outras" value="0" min="0" oninput="cs()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="s-mg" oninput="document.getElementById('s-mgv').textContent=this.value+'%';cs()"><span class="slider-val" id="s-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Modelo de comissão — 2026</p>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Faixa de preço do produto</label>
+          <select id="s-faixa" onchange="cs()">
+            <option value="20:4">Até R$79,99 — 20% + R$4 fixo</option>
+            <option value="14:16">R$80 a R$99,99 — 14% + R$16 fixo</option>
+            <option value="14:20">R$100 a R$199,99 — 14% + R$20 fixo</option>
+            <option value="14:26">R$200 ou mais — 14% + R$26 fixo</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Campanha de destaque (+2,5%)</label>
+          <select id="s-camp" onchange="cs()">
+            <option value="0">Não participar</option>
+            <option value="2.5">Sim, participar (+2,5%)</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc-btn btn-shopee" onclick="cs()">Calcular preço ideal na Shopee</button>
+    </div>
+    <div class="result-card rc-shopee" id="s-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-blue"><div class="met-label">Preço sugerido</div><div class="met-val" id="s-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="s-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="s-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="s-bk"></table>
+      <div class="tip tip-green"><span>💡</span><span class="tip-text" id="s-tip-txt"></span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ MERCADO LIVRE ══════════ -->
+  <div id="p-ml" class="panel">
+    <div class="alert-box"><strong>⚠️ Atualização março/2026:</strong> ML substituiu o custo fixo por uma taxa operacional variável para itens abaixo de R$79, baseada em peso e dimensões. Para itens acima de R$79, as tabelas de frete grátis foram atualizadas.</div>
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-ml">M</div>
+        <div><span class="card-title">Mercado Livre</span><span class="pill p-ml">Clássico / Premium — 2026</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="m-custo" value="35" oninput="cm()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="m-frete" value="15" oninput="cm()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="m-emb" value="3" oninput="cm()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="m-outras" value="0" oninput="cm()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="m-mg" oninput="document.getElementById('m-mgv').textContent=this.value+'%';cm()"><span class="slider-val" id="m-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Tipo de anúncio e faixa de preço</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Tipo de anúncio</label>
+          <select id="m-tipo" onchange="mTipo();cm()">
+            <option value="11">Clássico Eletrônicos (11%)</option>
+            <option value="13">Clássico Geral (13%)</option>
+            <option value="17" selected>Premium Geral (17%)</option>
+            <option value="19">Premium Moda/Acess. (19%)</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Taxa fixa por pedido (R$)</label><input type="number" id="m-fixa" value="6.75" step="0.25" oninput="cm()"></div>
+        <div class="fgroup"><label class="flabel">Parcelamento sem juros (%)</label><input type="number" id="m-parc" value="0" step="0.5" oninput="cm()"></div>
+      </div>
+      <button class="calc-btn btn-ml" onclick="cm()">Calcular preço ideal no Mercado Livre</button>
+    </div>
+    <div class="result-card rc-ml" id="m-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-amber"><div class="met-label">Preço sugerido</div><div class="met-val" id="m-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="m-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="m-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="m-bk"></table>
+      <div class="tip tip-amber"><span>💡</span><span class="tip-text">Anúncios Premium exigem frete grátis obrigatório. MercadoLíderes têm subsídio maior de frete. Verifique sua taxa operacional exata no Seller Center para itens abaixo de R$79.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ TIKTOK SHOP ══════════ -->
+  <div id="p-tiktok" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-tiktok">T</div>
+        <div><span class="card-title">TikTok Shop</span><span class="pill p-tiktok">6% comissão + taxa serviço</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="t-custo" value="25" oninput="ct()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="t-frete" value="15" oninput="ct()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="t-emb" value="2" oninput="ct()"></div>
+      </div>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="t-outras" value="0" oninput="ct()"></div>
+        <div class="fgroup"><label class="flabel">Comissão de afiliado (%)</label><input type="number" id="t-afi" value="10" step="1" oninput="ct()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="t-mg" oninput="document.getElementById('t-mgv').textContent=this.value+'%';ct()"><span class="slider-val" id="t-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Modelo do seller</p>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Período de isenção</label>
+          <select id="t-isento" onchange="ct()">
+            <option value="0">Não — comissão normal de 6%</option>
+            <option value="1">Sim — isenção (novos 60 dias)</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Produto abaixo de R$79?</label>
+          <select id="t-baixo" onchange="ct()">
+            <option value="2">Sim — taxa fixa R$2 por item</option>
+            <option value="0">Não — sem taxa fixa</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc-btn btn-tiktok" onclick="ct()">Calcular preço ideal no TikTok Shop</button>
+    </div>
+    <div class="result-card rc-tiktok" id="t-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-dark"><div class="met-label">Preço sugerido</div><div class="met-val" id="t-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="t-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="t-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="t-bk"></table>
+      <div class="tip tip-gray"><span>💡</span><span class="tip-text">TikTok Shop cobra 6% de comissão + 6% de taxa de serviço por pedido (máx R$50/item). A isenção de 60 dias é limitada a R$17.000 em economia por CNPJ. Afiliados são opcionais mas muito eficazes para alcance.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ AMAZON ══════════ -->
+  <div id="p-amazon" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-amazon">A</div>
+        <div><span class="card-title">Amazon Brasil</span><span class="pill p-amazon">8–15% por categoria</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="a-custo" value="30" oninput="ca()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="a-frete" value="18" oninput="ca()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="a-emb" value="3" oninput="ca()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="a-outras" value="0" oninput="ca()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="a-mg" oninput="document.getElementById('a-mgv').textContent=this.value+'%';ca()"><span class="slider-val" id="a-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Categoria e plano</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Categoria do produto</label>
+          <select id="a-cat" onchange="ca()">
+            <option value="8">Eletrônicos (8%)</option>
+            <option value="10">Livros / Games (10%)</option>
+            <option value="12" selected>Geral / Casa (12%)</option>
+            <option value="15">Moda / Calçados (15%)</option>
+            <option value="15">Saúde / Beleza (15%)</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Plano de vendas</label>
+          <select id="a-plano" onchange="ca()">
+            <option value="2">Individual — R$2/item</option>
+            <option value="0" selected>Profissional — R$19/mês</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Amazon Ads (% do preço)</label><input type="number" id="a-ads" value="5" step="0.5" oninput="ca()"></div>
+      </div>
+      <button class="calc-btn btn-amazon" onclick="ca()">Calcular preço ideal na Amazon</button>
+    </div>
+    <div class="result-card rc-amazon" id="a-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-amber"><div class="met-label">Preço sugerido</div><div class="met-val" id="a-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="a-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="a-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="a-bk"></table>
+      <div class="tip tip-amber"><span>💡</span><span class="tip-text">Amazon cobra comissão sobre preço total (produto + frete). Plano profissional (R$19/mês) é gratuito por 12 meses para novos vendedores. Amazon Ads são essenciais para visibilidade — inclua no cálculo.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ SHEIN ══════════ -->
+  <div id="p-shein" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-shein">SH</div>
+        <div><span class="card-title">Shein Marketplace</span><span class="pill p-shein">20% + R$5 por item</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="sh-custo" value="20" oninput="csh()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="sh-frete" value="12" oninput="csh()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="sh-emb" value="2" oninput="csh()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="sh-outras" value="0" oninput="csh()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="sh-mg" oninput="document.getElementById('sh-mgv').textContent=this.value+'%';csh()"><span class="slider-val" id="sh-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Configurações</p>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Período de isenção?</label>
+          <select id="sh-isento" onchange="csh()">
+            <option value="0">Não — comissão 20% + R$5</option>
+            <option value="1">Sim — isenção (30 a 90 dias novos)</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Campanha/Promoção Shein (+%)</label><input type="number" id="sh-promo" value="0" step="0.5" oninput="csh()"></div>
+      </div>
+      <button class="calc-btn btn-shein" onclick="csh()">Calcular preço ideal na Shein</button>
+    </div>
+    <div class="result-card rc-shein" id="sh-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-red"><div class="met-label">Preço sugerido</div><div class="met-val" id="sh-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="sh-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="sh-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="sh-bk"></table>
+      <div class="tip tip-red"><span>💡</span><span class="tip-text">A Shein tem forte apelo em moda e acessórios. Novos vendedores têm isenção de comissão por 30 a 90 dias. A plataforma exige produtos de alta qualidade e boa apresentação visual. Comissão padrão: 20% + R$5/item.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ MAGALU ══════════ -->
+  <div id="p-magalu" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-magalu">MG</div>
+        <div><span class="card-title">Magazine Luiza</span><span class="pill p-magalu">5,8–16% + R$3 fixo</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="mg-custo" value="30" oninput="cmg()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="mg-frete" value="15" oninput="cmg()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="mg-emb" value="2" oninput="cmg()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="mg-outras" value="0" oninput="cmg()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="mg-mg" oninput="document.getElementById('mg-mgv').textContent=this.value+'%';cmg()"><span class="slider-val" id="mg-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Categoria e configurações</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Categoria</label>
+          <select id="mg-cat" onchange="cmg()">
+            <option value="5.8">Livros / Games (5,8%)</option>
+            <option value="10">Pet / Mercado (10%)</option>
+            <option value="12" selected>Eletrodomésticos (12%)</option>
+            <option value="14.8">Geral / Vestuário (14,8%)</option>
+            <option value="16">Moda / Acess. (16%)</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Taxa fixa por pedido (R$)</label><input type="number" id="mg-fixa" value="3" step="0.5" oninput="cmg()"></div>
+        <div class="fgroup"><label class="flabel">Antecipação de recebíveis (%)</label><input type="number" id="mg-antec" value="0" step="0.5" oninput="cmg()"></div>
+      </div>
+      <button class="calc-btn btn-magalu" onclick="cmg()">Calcular preço ideal no Magalu</button>
+    </div>
+    <div class="result-card rc-magalu" id="mg-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-blue"><div class="met-label">Preço sugerido</div><div class="met-val" id="mg-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="mg-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="mg-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="mg-bk"></table>
+      <div class="tip tip-blue"><span>💡</span><span class="tip-text">Magalu cobra comissão apenas sobre o valor do produto (sem frete). Frete grátis acima de R$79 via Super App — o seller subsidia parte conforme seu prazo de despacho (60% a 85%). R$3 de taxa fixa em pedidos acima de R$10.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ KWAI SHOP ══════════ -->
+  <div id="p-kwai" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-kwai">K</div>
+        <div><span class="card-title">Kwai Shop</span><span class="pill p-kwai">6–10% escalonado + R$4 logística</span></div>
+      </div>
+      <p class="section-label">Dados do produto</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Custo do produto (R$)</label><input type="number" id="k-custo" value="20" oninput="ck()"></div>
+        <div class="fgroup"><label class="flabel">Custo do frete (R$)</label><input type="number" id="k-frete" value="12" oninput="ck()"></div>
+        <div class="fgroup"><label class="flabel">Embalagem (R$)</label><input type="number" id="k-emb" value="2" oninput="ck()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Outras despesas (R$)</label><input type="number" id="k-outras" value="0" oninput="ck()"></div>
+        <div class="fgroup"><label class="flabel">Margem desejada (%)</label>
+          <div class="slider-row"><input type="range" min="5" max="100" step="1" value="30" id="k-mg" oninput="document.getElementById('k-mgv').textContent=this.value+'%';ck()"><span class="slider-val" id="k-mgv">30%</span></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Configurações</p>
+      <div class="grid3">
+        <div class="fgroup"><label class="flabel">Taxa de comissão</label>
+          <select id="k-com" onchange="ck()">
+            <option value="0">Isenção — novos vendedores (90 dias)</option>
+            <option value="6" selected>6% — ticket baixo</option>
+            <option value="8">8% — ticket médio</option>
+            <option value="10">10% — ticket alto</option>
+          </select>
+        </div>
+        <div class="fgroup"><label class="flabel">Taxa de logística (R$)</label><input type="number" id="k-log" value="4" step="0.5" oninput="ck()"></div>
+        <div class="fgroup"><label class="flabel">Comissão de afiliado (%)</label><input type="number" id="k-afi" value="5" step="1" oninput="ck()"></div>
+      </div>
+      <button class="calc-btn btn-kwai" onclick="ck()">Calcular preço ideal no Kwai Shop</button>
+    </div>
+    <div class="result-card rc-kwai" id="k-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado</p>
+      <div class="metrics">
+        <div class="met met-amber"><div class="met-label">Preço sugerido</div><div class="met-val" id="k-p">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro líquido</div><div class="met-val" id="k-l">—</div></div>
+        <div class="met met-dark"><div class="met-label">Margem real</div><div class="met-val" id="k-mr">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Detalhamento completo</p>
+      <table class="bk-table" id="k-bk"></table>
+      <div class="tip tip-amber"><span>💡</span><span class="tip-text">Kwai Shop oferece 0% de comissão por 90 dias para novos vendedores. Após isso, a taxa é escalonada de 6% a 10% conforme o ticket. O programa de afiliados com criadores de conteúdo é muito forte na plataforma.</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════ IMPOSTOS ══════════ -->
+  <div id="p-imp" class="panel">
+    <div class="card">
+      <div class="card-head">
+        <div class="plat-logo logo-tax">%</div>
+        <div><span class="card-title">Calculadora de Impostos</span><span class="pill p-tax">MEI / Simples / Lucro Presumido / PF</span></div>
+      </div>
+      <p class="section-label">Escolha o regime tributário</p>
+      <div class="regime-cards">
+        <div class="regime-card selected" onclick="selRegime('mei',this)">
+          <h4>MEI</h4>
+          <p>Microempreendedor Individual. Até R$81k/ano.</p>
+          <div class="rc-rate">R$75,90/mês</div>
+        </div>
+        <div class="regime-card" onclick="selRegime('s1',this)">
+          <h4>Simples — Faixa 1</h4>
+          <p>Comércio. Até R$180k/ano.</p>
+          <div class="rc-rate">4,00%</div>
+        </div>
+        <div class="regime-card" onclick="selRegime('s2',this)">
+          <h4>Simples — Faixa 2</h4>
+          <p>Comércio. R$180k a R$360k/ano.</p>
+          <div class="rc-rate">7,30%</div>
+        </div>
+        <div class="regime-card" onclick="selRegime('s3',this)">
+          <h4>Simples — Faixa 3</h4>
+          <p>Comércio. R$360k a R$720k/ano.</p>
+          <div class="rc-rate">9,50%</div>
+        </div>
+        <div class="regime-card" onclick="selRegime('lp',this)">
+          <h4>Lucro Presumido</h4>
+          <p>IRPJ + CSLL + PIS + COFINS.</p>
+          <div class="rc-rate">~6,05%</div>
+        </div>
+        <div class="regime-card" onclick="selRegime('pf',this)">
+          <h4>Pessoa Física</h4>
+          <p>Sem CNPJ. Risco de autuação.</p>
+          <div class="rc-rate">7,5–27,5%</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Dados da venda</p>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Preço de venda (R$)</label><input type="number" id="i-preco" value="80" oninput="ci()"></div>
+        <div class="fgroup"><label class="flabel">Custo total do produto (R$)</label><input type="number" id="i-custo" value="35" oninput="ci()"></div>
+      </div>
+      <div class="grid2">
+        <div class="fgroup"><label class="flabel">Faturamento mensal estimado (R$)</label><input type="number" id="i-fat" value="15000" oninput="ci()"></div>
+        <div class="fgroup"><label class="flabel">Frete e outras despesas (R$)</label><input type="number" id="i-desp" value="15" oninput="ci()"></div>
+      </div>
+      <button class="calc-btn btn-tax" onclick="ci()">Calcular carga tributária por unidade</button>
+    </div>
+
+    <div class="result-card rc-tax" id="i-res" style="display:none">
+      <p class="section-label" style="margin-bottom:1rem">Resultado tributário</p>
+      <div class="metrics">
+        <div class="met met-red"><div class="met-label">Imposto por venda</div><div class="met-val" id="i-v">—</div></div>
+        <div class="met met-dark"><div class="met-label">Alíquota efetiva</div><div class="met-val" id="i-a">—</div></div>
+        <div class="met met-green"><div class="met-label">Lucro após impostos</div><div class="met-val" id="i-l">—</div></div>
+      </div>
+      <div class="divider"></div>
+      <p class="section-label">Composição dos impostos</p>
+      <table class="bk-table" id="i-bk"></table>
+      <div class="divider"></div>
+      <p class="section-label">Preço mínimo com imposto embutido</p>
+      <table class="bk-table" id="i-ps"></table>
+      <div class="tip tip-red" style="margin-top:12px"><span>⚠️</span><span class="tip-text" id="i-tip"></span></div>
+    </div>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="wrap" style="margin-top:2rem">
+  <p class="section-label" style="margin-bottom:.8rem">Comparativo rápido de taxas — 2026</p>
+  <div style="overflow-x:auto;border-radius:10px;border:1px solid var(--border)">
+    <table class="cmp-table" style="min-width:600px">
+      <thead><tr><th>Marketplace</th><th>Comissão</th><th>Taxa Fixa</th><th>Outros Custos</th><th>Novos Sellers</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Shopee</strong> (até R$79)</td><td>20%</td><td>R$4/item</td><td>+2,5% campanhas</td><td><span class="cmp-badge" style="background:rgba(255,98,0,.12);color:#ff8c3a;border-color:rgba(255,98,0,.3)">Sem bônus</span></td></tr>
+        <tr><td><strong>Shopee</strong> (R$80–R$199)</td><td>14%</td><td>R$16–R$20/item</td><td>+2,5% campanhas</td><td>—</td></tr>
+        <tr><td><strong>Mercado Livre</strong> Clássico</td><td>11–13%</td><td>R$6,75 (ou variável &lt;R$79)</td><td>Ads, parcelamento</td><td><span class="cmp-badge" style="background:rgba(255,230,0,.1);color:#ffd700;border-color:rgba(255,230,0,.25)">Sem mensalidade</span></td></tr>
+        <tr><td><strong>Mercado Livre</strong> Premium</td><td>17–19%</td><td>R$6,75 (ou variável &lt;R$79)</td><td>Frete grátis obrigatório</td><td>—</td></tr>
+        <tr><td><strong>TikTok Shop</strong></td><td>6% + 6% serviço</td><td>R$2 (itens &lt;R$79)</td><td>Afiliados 5–20%</td><td><span class="cmp-badge" style="background:rgba(229,229,229,.07);color:#ccc;border-color:rgba(229,229,229,.15)">0% / 60 dias</span></td></tr>
+        <tr><td><strong>Amazon Brasil</strong></td><td>8–15%</td><td>R$2/item (plano indiv.)</td><td>R$19/mês prof. + Ads</td><td><span class="cmp-badge" style="background:rgba(255,153,0,.12);color:#ffb347;border-color:rgba(255,153,0,.3)">12m grátis prof.</span></td></tr>
+        <tr><td><strong>Shein</strong></td><td>20%</td><td>R$5/item</td><td>Qualidade exigida</td><td><span class="cmp-badge" style="background:rgba(255,0,110,.1);color:#ff5ca8;border-color:rgba(255,0,110,.25)">0% / 30–90 dias</span></td></tr>
+        <tr><td><strong>Magazine Luiza</strong></td><td>5,8–16%</td><td>R$3/pedido (&gt;R$10)</td><td>Subsidio frete grátis</td><td><span class="cmp-badge" style="background:rgba(33,150,243,.12);color:#64b5f6;border-color:rgba(33,150,243,.3)">Grátis p/ cadastrar</span></td></tr>
+        <tr><td><strong>Kwai Shop</strong></td><td>6–10%</td><td>R$4 logística</td><td>Afiliados 5–15%</td><td><span class="cmp-badge" style="background:rgba(255,195,0,.1);color:#ffd740;border-color:rgba(255,195,0,.25)">0% / 90 dias</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="wrap">
+  <footer>
+    <span>Precificador Pro</span> · Taxas atualizadas em Abril/2026 · Valores estimados — consulte sempre as centrais de cada marketplace e um contador para decisões fiscais
+  </footer>
+</div>
+
+<script>
+const R=v=>'R$\u00a0'+v.toFixed(2).replace('.',',')
+const P=v=>v.toFixed(1).replace('.',',')+'\u00a0%'
+const bk=(id,rows)=>{document.getElementById(id).innerHTML=rows.filter(r=>r&&r.length).map(r=>`<tr><td class="td-muted">${r[0]}</td><td class="${r[2]||''}">${r[1]}</td></tr>`).join('')}
+
+function go(tab){
+  const tabs=['shopee','ml','tiktok','amazon','shein','magalu','kwai','imp']
+  const cls={shopee:'tab-shopee',ml:'tab-ml',tiktok:'tab-tiktok',amazon:'tab-amazon',shein:'tab-shein',magalu:'tab-magalu',kwai:'tab-kwai',imp:'tab-imp'}
+  tabs.forEach(t=>{
+    document.getElementById('p-'+t).classList.toggle('active',t===tab)
+    document.querySelector('.'+cls[t]).classList.toggle('active',t===tab)
+  })
+}
+
+function mr(val,target,id){
+  const el=document.getElementById(id)
+  el.textContent=P(val)
+  el.style.color=val>=target?'#4ade80':'#ff4d57'
+}
+
+// ── SHOPEE ──
+function cs(){
+  const cu=+document.getElementById('s-custo').value||0
+  const fv=+document.getElementById('s-preco-v').value||0
+  const fr=+document.getElementById('s-frete').value||0
+  const em=+document.getElementById('s-emb').value||0
+  const ou=+document.getElementById('s-outras').value||0
+  const mg=+document.getElementById('s-mg').value/100||.30
+  const camp=+document.getElementById('s-camp').value/100||0
+  const faixa=document.getElementById('s-faixa').value.split(':')
+  const pct=+faixa[0]/100, fixa=+faixa[1]
+  const totalPct=pct+camp
+  const custoTotal=cu+fr+em+ou
+  let pr=fv>0?fv:Math.max((custoTotal+fixa)/(1-totalPct-mg),0)
+  const tCom=pr*pct, tCamp=pr*camp
+  const rec=pr-tCom-tCamp-fixa
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('s-p').textContent=R(pr)
+  document.getElementById('s-l').textContent=R(lu)
+  mr(mrReal,mg*100,'s-mr')
+  bk('s-bk',[
+    ['Preço de venda',R(pr),''],
+    ['(−) Comissão Shopee ('+((pct*100).toFixed(0))+'%)', '−'+R(tCom),''],
+    camp?['(−) Taxa campanha destaque ('+((camp*100).toFixed(1))+'%)','−'+R(tCamp),'']: null,
+    ['(−) Taxa fixa por item','−'+R(fixa),''],
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']:null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  let tip=`Faixa selecionada: até R$${faixa[1]==='4'?'79,99':'200+'} — comissão ${(pct*100).toFixed(0)}% + R$${fixa} fixo/item. `
+  tip+=lu<0?'⚠️ Preço abaixo do ponto de equilíbrio! Revise sua margem ou reduza custos.':'Margem saudável. Verifique as taxas no Seller Center antes de publicar.'
+  document.getElementById('s-tip-txt').textContent=tip
+  document.getElementById('s-res').style.display='block'
+}
+
+// ── MERCADO LIVRE ──
+function mTipo(){document.getElementById('m-fixa').value=6.75}
+function cm(){
+  const cu=+document.getElementById('m-custo').value||0
+  const fr=+document.getElementById('m-frete').value||0
+  const em=+document.getElementById('m-emb').value||0
+  const ou=+document.getElementById('m-outras').value||0
+  const mg=+document.getElementById('m-mg').value/100||.30
+  const co=+document.getElementById('m-tipo').value/100||.17
+  const fi=+document.getElementById('m-fixa').value||0
+  const pa=+document.getElementById('m-parc').value/100||0
+  const custoTotal=cu+fr+em+ou+fi
+  const pr=Math.max(custoTotal/(1-co-pa-mg),0)
+  const tCom=pr*co, tPa=pr*pa
+  const rec=pr-tCom-tPa-fi
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('m-p').textContent=R(pr)
+  document.getElementById('m-l').textContent=R(lu)
+  mr(mrReal,mg*100,'m-mr')
+  bk('m-bk',[
+    ['Preço de venda',R(pr),''],
+    ['(−) Comissão ML ('+((co*100).toFixed(0))+'%)','−'+R(tCom),''],
+    fi?['(−) Taxa fixa / operacional','−'+R(fi),'']: null,
+    pa?['(−) Taxa parcelamento ('+((pa*100).toFixed(1))+'%)','−'+R(tPa),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('m-res').style.display='block'
+}
+
+// ── TIKTOK ──
+function ct(){
+  const cu=+document.getElementById('t-custo').value||0
+  const fr=+document.getElementById('t-frete').value||0
+  const em=+document.getElementById('t-emb').value||0
+  const ou=+document.getElementById('t-outras').value||0
+  const mg=+document.getElementById('t-mg').value/100||.30
+  const af=+document.getElementById('t-afi').value/100||0
+  const isento=document.getElementById('t-isento').value==='1'
+  const fi=+document.getElementById('t-baixo').value||0
+  const co=isento?0:0.06
+  const srv=isento?0:0.06
+  const totalPct=co+srv+af
+  const custoTotal=cu+fr+em+ou+fi
+  const pr=Math.max((custoTotal)/(1-totalPct-mg),0)
+  const tCom=pr*co, tSrv=pr*srv, tAfi=pr*af
+  const rec=pr-tCom-tSrv-tAfi-fi
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('t-p').textContent=R(pr)
+  document.getElementById('t-l').textContent=R(lu)
+  mr(mrReal,mg*100,'t-mr')
+  bk('t-bk',[
+    ['Preço de venda',R(pr),''],
+    isento?['(−) Comissão (ISENTA — 60 dias)','R$\u00a00,00','']: ['(−) Comissão TikTok Shop (6%)','−'+R(tCom),''],
+    !isento?['(−) Taxa de serviço (6%, máx R$50)','−'+R(Math.min(tSrv,50)),'']: null,
+    fi?['(−) Taxa fixa itens <R$79','−'+R(fi),'']: null,
+    af?['(−) Comissão afiliado ('+((af*100).toFixed(0))+'%)','−'+R(tAfi),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('t-res').style.display='block'
+}
+
+// ── AMAZON ──
+function ca(){
+  const cu=+document.getElementById('a-custo').value||0
+  const fr=+document.getElementById('a-frete').value||0
+  const em=+document.getElementById('a-emb').value||0
+  const ou=+document.getElementById('a-outras').value||0
+  const mg=+document.getElementById('a-mg').value/100||.30
+  const co=+document.getElementById('a-cat').value/100||.12
+  const plano=+document.getElementById('a-plano').value||0
+  const ads=+document.getElementById('a-ads').value/100||.05
+  const totalPct=co+ads
+  const custoTotal=cu+fr+em+ou+plano
+  const pr=Math.max(custoTotal/(1-totalPct-mg),0)
+  const tCom=pr*co, tAds=pr*ads
+  const rec=pr-tCom-tAds-plano
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('a-p').textContent=R(pr)
+  document.getElementById('a-l').textContent=R(lu)
+  mr(mrReal,mg*100,'a-mr')
+  bk('a-bk',[
+    ['Preço de venda',R(pr),''],
+    ['(−) Comissão Amazon ('+((co*100).toFixed(0))+'%)','−'+R(tCom),''],
+    plano?['(−) Taxa fixa plano individual','−'+R(plano),'']: null,
+    ads?['(−) Amazon Ads ('+((ads*100).toFixed(0))+'%)','−'+R(tAds),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('a-res').style.display='block'
+}
+
+// ── SHEIN ──
+function csh(){
+  const cu=+document.getElementById('sh-custo').value||0
+  const fr=+document.getElementById('sh-frete').value||0
+  const em=+document.getElementById('sh-emb').value||0
+  const ou=+document.getElementById('sh-outras').value||0
+  const mg=+document.getElementById('sh-mg').value/100||.30
+  const isento=document.getElementById('sh-isento').value==='1'
+  const promo=+document.getElementById('sh-promo').value/100||0
+  const co=isento?0:0.20, fi=isento?0:5
+  const totalPct=co+promo
+  const custoTotal=cu+fr+em+ou+fi
+  const pr=Math.max(custoTotal/(1-totalPct-mg),0)
+  const tCom=pr*co, tPromo=pr*promo
+  const rec=pr-tCom-tPromo-fi
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('sh-p').textContent=R(pr)
+  document.getElementById('sh-l').textContent=R(lu)
+  mr(mrReal,mg*100,'sh-mr')
+  bk('sh-bk',[
+    ['Preço de venda',R(pr),''],
+    isento?['(−) Comissão (ISENTA — 30 a 90 dias)','R$\u00a00,00','']: ['(−) Comissão Shein (20%)','−'+R(tCom),''],
+    !isento?['(−) Taxa fixa por item','−'+R(fi),'']: null,
+    promo?['(−) Taxa campanha/promoção ('+((promo*100).toFixed(1))+'%)','−'+R(tPromo),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('sh-res').style.display='block'
+}
+
+// ── MAGALU ──
+function cmg(){
+  const cu=+document.getElementById('mg-custo').value||0
+  const fr=+document.getElementById('mg-frete').value||0
+  const em=+document.getElementById('mg-emb').value||0
+  const ou=+document.getElementById('mg-outras').value||0
+  const mg=+document.getElementById('mg-mg').value/100||.30
+  const co=+document.getElementById('mg-cat').value/100||.12
+  const fi=+document.getElementById('mg-fixa').value||0
+  const antec=+document.getElementById('mg-antec').value/100||0
+  const totalPct=co+antec
+  const custoTotal=cu+fr+em+ou+fi
+  const pr=Math.max(custoTotal/(1-totalPct-mg),0)
+  const tCom=pr*co, tAnt=pr*antec
+  const rec=pr-tCom-tAnt-fi
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('mg-p').textContent=R(pr)
+  document.getElementById('mg-l').textContent=R(lu)
+  mr(mrReal,mg*100,'mg-mr')
+  bk('mg-bk',[
+    ['Preço de venda',R(pr),''],
+    ['(−) Comissão Magalu ('+((co*100).toFixed(1))+'%)','−'+R(tCom),''],
+    fi?['(−) Taxa fixa por pedido','−'+R(fi),'']: null,
+    antec?['(−) Antecipação ('+((antec*100).toFixed(1))+'%)','−'+R(tAnt),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('mg-res').style.display='block'
+}
+
+// ── KWAI ──
+function ck(){
+  const cu=+document.getElementById('k-custo').value||0
+  const fr=+document.getElementById('k-frete').value||0
+  const em=+document.getElementById('k-emb').value||0
+  const ou=+document.getElementById('k-outras').value||0
+  const mg=+document.getElementById('k-mg').value/100||.30
+  const co=+document.getElementById('k-com').value/100||.06
+  const log=+document.getElementById('k-log').value||0
+  const af=+document.getElementById('k-afi').value/100||0
+  const totalPct=co+af
+  const custoTotal=cu+fr+em+ou+log
+  const pr=Math.max(custoTotal/(1-totalPct-mg),0)
+  const tCom=pr*co, tAfi=pr*af
+  const rec=pr-tCom-tAfi-log
+  const lu=rec-cu-fr-em-ou
+  const mrReal=pr>0?lu/pr*100:0
+  document.getElementById('k-p').textContent=R(pr)
+  document.getElementById('k-l').textContent=R(lu)
+  mr(mrReal,mg*100,'k-mr')
+  bk('k-bk',[
+    ['Preço de venda',R(pr),''],
+    co?['(−) Comissão Kwai ('+((co*100).toFixed(0))+'%)','−'+R(tCom),'']: ['(−) Comissão (ISENTA — 90 dias)','R$\u00a00,00',''],
+    log?['(−) Taxa de logística','−'+R(log),'']: null,
+    af?['(−) Comissão afiliado ('+((af*100).toFixed(0))+'%)','−'+R(tAfi),'']: null,
+    ['= Valor recebido bruto',R(rec),''],
+    ['(−) Custo do produto','−'+R(cu),''],
+    ['(−) Custo do frete','−'+R(fr),''],
+    em?['(−) Embalagem','−'+R(em),'']: null,
+    ou?['(−) Outras despesas','−'+R(ou),'']: null,
+    ['= Lucro líquido',R(lu),lu>=0?'g':'r'],
+  ])
+  document.getElementById('k-res').style.display='block'
+}
+
+// ── IMPOSTOS ──
+let regimeAtual='mei'
+function selRegime(r,el){
+  regimeAtual=r
+  document.querySelectorAll('.regime-card').forEach(c=>c.classList.remove('selected'))
+  el.classList.add('selected')
+  ci()
+}
+
+function ci(){
+  const pr=+document.getElementById('i-preco').value||0
+  const cu=+document.getElementById('i-custo').value||0
+  const desp=+document.getElementById('i-desp').value||0
+  document.getElementById('i-res').style.display='block'
+
+  if(regimeAtual==='mei'){
+    document.getElementById('i-v').textContent='R$\u00a075,90/mês'
+    document.getElementById('i-a').textContent='Fixo'
+    document.getElementById('i-l').textContent=R(pr-cu-desp)
+    bk('i-bk',[
+      ['MEI Comércio — INSS + ICMS fixo','R$\u00a075,90/mês',''],
+      ['Não incide imposto por venda','—',''],
+      ['Limite de faturamento','R$\u00a081.000/ano',''],
+    ])
+    bk('i-ps',[['Preço sem acréscimo tributário',R(pr),'g']])
+    document.getElementById('i-tip').textContent='MEI paga valor fixo mensal independentemente do volume de vendas. Ideal para quem está começando. Ao ultrapassar R$81k/ano, é obrigatório migrar para outro regime. Consulte seu contador.'
+    return
+  }
+  if(regimeAtual==='pf'){
+    document.getElementById('i-v').textContent='Anual'
+    document.getElementById('i-a').textContent='7,5–27,5%'
+    document.getElementById('i-l').textContent='Variável'
+    bk('i-bk',[['Isento','até R$27.110/ano',''],['7,5%','R$27.111–R$33.919/ano',''],['15%','R$33.920–R$45.012/ano',''],['22,5%','R$45.013–R$55.976/ano',''],['27,5%','acima de R$55.976/ano','']])
+    bk('i-ps',[['Abra MEI ou CNPJ para regularizar','Obrigatório','r']])
+    document.getElementById('i-tip').textContent='⚠️ Vender como PF sem CNPJ representa risco fiscal grave, incluindo autuação e cobrança retroativa de impostos. Abra ao menos um MEI. Não há como calcular imposto exato por venda nesse regime.'
+    return
+  }
+
+  const alqs={
+    s1:{a:.04,cofins:.0274,pis:.0063,icms:.0163,cpp:0,cpc:0},
+    s2:{a:.073,cofins:.0174,pis:.0063,icms:.0373,cpp:.043,cpc:0},
+    s3:{a:.095,cofins:.0174,pis:.0063,icms:.041,cpp:.043,cpc:0},
+  }
+  let rows=[],total=0,tip=''
+  if(regimeAtual.startsWith('s')){
+    const d=alqs[regimeAtual]
+    total=pr*d.a
+    const lu=pr-cu-desp-total
+    document.getElementById('i-v').textContent=R(total)
+    document.getElementById('i-a').textContent=P(d.a*100)
+    document.getElementById('i-l').textContent=R(lu)
+    rows=[
+      ['COFINS',R(pr*d.cofins),''],
+      ['PIS',R(pr*d.pis),''],
+      ['ICMS',R(pr*d.icms),''],
+      d.cpp>0?['CPP (Previdência)',R(pr*d.cpp),'']:null,
+      ['Total DAS (guia única)',R(total),'g'],
+    ]
+    tip='Simples Nacional recolhe todos os tributos em uma única guia (DAS). A alíquota sobe progressivamente conforme o faturamento acumulado ultrapassa cada faixa. Verifique sua faixa atual com seu contador.'
+  } else {
+    const ir=pr*.015,cs=pr*.009,pis=pr*.0065,cof=pr*.03
+    total=ir+cs+pis+cof
+    const lu=pr-cu-desp-total
+    document.getElementById('i-v').textContent=R(total)
+    document.getElementById('i-a').textContent=P(total/pr*100)
+    document.getElementById('i-l').textContent=R(lu)
+    rows=[['IRPJ (1,5% sobre receita bruta)',R(ir),''],['CSLL (0,9%)',R(cs),''],['PIS (0,65%)',R(pis),''],['COFINS (3%)',R(cof),''],['Total de tributos',R(total),'g']]
+    tip='Lucro Presumido tem carga total de ~6,05% sobre faturamento. Indicado para operações com margens altas. Exige contador habilitado e escrituração contábil completa.'
+  }
+  bk('i-bk',rows)
+  const pci=total>0?pr/(1-(total/pr)):pr
+  bk('i-ps',[
+    ['Preço mínimo para absorver o imposto',R(pci),'g'],
+    ['Tributo embutido no preço',R(pci-pr),''],
+    ['Lucro após imposto e despesas',R(pci-cu-desp-total),'g'],
+  ])
+  document.getElementById('i-tip').textContent=tip
+}
+
+// init
+cs();cm();ct();ca();csh();cmg();ck();ci()
+</script>
+</body>
+</html>
